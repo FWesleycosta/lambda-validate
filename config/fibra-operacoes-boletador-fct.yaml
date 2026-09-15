@@ -1,0 +1,57 @@
+project: Fibra.Operacoes.Boletador.FCT
+src_path: src/Fibra.Operacoes.Boletador.FCT/Fibra.Operacoes.Boletador.FCT.csproj
+
+defaults:
+  memory_size: 512
+  timeout: 600
+  tracing_config: PassThrough
+  runtime: dotnet10
+
+handlers:
+  iniciar-processamento: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.IniciarProcessamentoHandler::ExecutarAsync"
+  salvar-sybase: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.SalvarSybaseHandler::ExecutarAsync"
+  salvar-pg: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.SalvarPgHandler::ExecutarAsync"
+  salvar-garantia-garantidor: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.SalvarGarantiaGarantidorHandler::ExecutarAsync"
+  salvar-dados-ted-sybase: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.SalvarDadosTedSybaseHandler::ExecutarAsync"
+  salvar-dados-ted-pg: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.SalvarDadosTedPgHandler::ExecutarAsync"
+  preparar-paginas-titulos: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.PrepararPaginasTitulosHandler::ExecutarAsync"
+  salvar-lote-titulos-sybase: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.SalvarLoteTitulosSybaseHandler::ExecutarAsync"
+  salvar-lote-titulos-pg: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.SalvarLoteTitulosPgHandler::ExecutarAsync"
+  preparar-paginas-sacados: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.PrepararPaginasSacadosHandler::ExecutarAsync"
+  salvar-lote-sacados-sybase: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.SalvarLoteSacadosSybaseHandler::ExecutarAsync"
+  agregar-mapa-sacados: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.AgregarMapaSacadosHandler::ExecutarAsync"
+  vincular-sacados-titulos-sybase: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.VincularSacadosTitulosSybaseHandler::ExecutarAsync"
+  vincular-sacados-titulos-pg: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.VincularSacadosTitulosPgHandler::ExecutarAsync"
+  compensar-boleto: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.CompensarBoletoHandler::ExecutarAsync"
+  atualizar-status: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.AtualizarStatusHandler::ExecutarAsync"
+  notificar-tesouraria: "Fibra.Operacoes.Boletador.FCT::Fibra.Operacoes.Boletador.FCT.Handlers.NotificarTesourariaHandler::ExecutarAsync"
+
+ssm_parameters:
+  dev:
+    - name: "/Operacoes/Boletador/FCT/SybaseEnabled"
+      value: "true"
+    - name: "/Operacoes/Boletador/FCT/Sacado/TamanhoPaginaSacados"
+      value: "200"
+    - name: "/Operacoes/Boletador/FCT/Sacado/TamanhoLoteAcl"
+      value: "50"
+    - name: "/Operacoes/Boletador/FCT/Titulo/TamanhoPaginaTitulos"
+      value: "500"
+  hml:
+    - name: "/Operacoes/Boletador/FCT/SybaseEnabled"
+      value: "true"
+    - name: "/Operacoes/Boletador/FCT/Sacado/TamanhoPaginaSacados"
+      value: "200"
+    - name: "/Operacoes/Boletador/FCT/Sacado/TamanhoLoteAcl"
+      value: "50"
+    - name: "/Operacoes/Boletador/FCT/Titulo/TamanhoPaginaTitulos"
+      value: "1000"
+  prd:
+    - name: "/Operacoes/Boletador/FCT/SybaseEnabled"
+      value: "true"
+    - name: "/Operacoes/Boletador/FCT/Sacado/TamanhoPaginaSacados"
+      value: "200"
+    - name: "/Operacoes/Boletador/FCT/Sacado/TamanhoLoteAcl"
+      value: "50"
+    - name: "/Operacoes/Boletador/FCT/Titulo/TamanhoPaginaTitulos"
+      value: "1000"
+ 
