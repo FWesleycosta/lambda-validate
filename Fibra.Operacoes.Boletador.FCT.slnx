@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Fibra.Operacoes.Boletador.FCT/Fibra.Operacoes.Boletador.FCT.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Fibra.Operacoes.Boletador.FCT.IntegrationTests/Fibra.Operacoes.Boletador.FCT.IntegrationTests.csproj" />
+    <Project Path="test/Fibra.Operacoes.Boletador.FCT.UnitTests/Fibra.Operacoes.Boletador.FCT.UnitTests.csproj" />
+  </Folder>
+</Solution>
+ 
